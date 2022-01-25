@@ -1,13 +1,17 @@
 package yangchao.study.redis;
 
 import com.alibaba.fastjson.JSON;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import redis.clients.jedis.*;
+import redis.clients.jedis.search.*;
+import yangchao.study.entity.Student;
 import yangchao.study.entity.Test1;
-import yangchao.study.wes.Test;
+import yangchao.study.entity.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,5 +79,42 @@ public class RedisTest implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         test();
+    }
+
+    public static void main(String[] args) {
+        JedisPool pool = new JedisPool(Protocol.DEFAULT_HOST, 6380);
+        Student maya = new Student("maya", "Jayavant");
+        Jedis jedis = pool.getResource();
+        jedis.set("student:111:1", JSON.toJSONString(maya));
+
+        UnifiedJedis client = new JedisPooled(Protocol.DEFAULT_HOST, 6380);
+        client.jsonSet("student:111", maya);
+
+        Student oliwia = new Student("Oliwia", "Jagoda");
+        client.jsonSet("student:112", oliwia);
+
+
+        Schema schema = new Schema().addTextField("$.firstName", 1.0).addTextField("$" +
+                ".lastName", 1.0);
+        IndexDefinition rule = new IndexDefinition(IndexDefinition.Type.JSON)
+                .setPrefixes(new String[]{"student:"});
+        client.ftCreate("student-index",
+                IndexOptions.defaultOptions().setDefinition(rule),
+                schema);
+        Query q = new Query("@\\$\\" + ".firstName:oli*");
+        SearchResult mayaSearch = client.ftSearch("student-index", q);
+
+        List<Document> docs = mayaSearch.getDocuments();
+        for (Document doc : docs) {
+            System.out.println(JSON.toJSONString(doc));
+        }
+
+    }
+
+    @Test
+    public void testRedisJson() {
+        Student maya = new Student("maya", "Jayavant");
+        JedisUtils.build().add("student:113:113", maya);
+        System.out.println(JedisUtils.build().get("student:113"));
     }
 }
