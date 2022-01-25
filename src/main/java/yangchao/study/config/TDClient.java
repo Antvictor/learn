@@ -18,7 +18,7 @@ public class TDClient {
 
 //    protected final static String keystorePath = "C:\\Users\\shao\\Desktop\\audio\\tdchain\\0xbae09667c2bf06b630ea38933df558a3.pfx";
     protected final static String keystorePath = "/Users/exccedy/project/td_project/toc/cer/tttt.pfx";
-    protected final static String keystorePasswd = "123456";
+    protected final static String keystorePasswd = "";
 
     //# Access to Tiandeyun block chain port, default is18088
     protected final static int port = 18088;
