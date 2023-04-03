@@ -27,4 +27,9 @@ public class TestServiceImpl implements TestService {
         return test1Mapper.selectByExample(test1Example);
     }
 
+    @Override
+    public Object queryUser() {
+        return test1Mapper.selectByPrimaryKey(1);
+    }
+
 }

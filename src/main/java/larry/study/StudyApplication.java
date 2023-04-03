@@ -1,13 +1,17 @@
 package larry.study;
 
+import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.security.auth.login.Configuration;
+
 @SpringBootApplication
-@MapperScan("yangchao.study.mapper")
-@NacosPropertySource(dataId = "example", autoRefreshed = true)
+@MapperScan("larry.study.mapper")
+@EnableNacosConfig
+@NacosPropertySource(dataId = "mysql", autoRefreshed = true)
 public class StudyApplication {
 
     public static void main(String[] args) {

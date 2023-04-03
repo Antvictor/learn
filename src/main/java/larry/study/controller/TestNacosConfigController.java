@@ -1,6 +1,8 @@
 package larry.study.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
+import larry.study.server.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +17,16 @@ public class TestNacosConfigController {
 
     @NacosValue(value = "${urlLocalCache:false}", autoRefreshed = true)
     private boolean urlLocalCache;
+    @Autowired
+    TestService testService;
 
     @GetMapping("get")
     public boolean getUrlLocalCache() {
         return urlLocalCache;
+    }
+
+    @GetMapping("user")
+    public  Object queryUser(){
+        return testService.queryUser();
     }
 }

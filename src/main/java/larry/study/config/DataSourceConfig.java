@@ -1,5 +1,8 @@
 package larry.study.config;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@NacosPropertySource(dataId = "mysql.properties", autoRefreshed = true)
 public class DataSourceConfig {
 
     /**
