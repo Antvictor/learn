@@ -1,11 +1,13 @@
 package larry.study.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import larry.study.entity.Test1;
 import larry.study.entity.Test1Example;
 
 import java.util.List;
 
+@Mapper
 public interface Test1Mapper {
     long countByExample(Test1Example example);
 
