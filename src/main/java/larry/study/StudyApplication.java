@@ -11,7 +11,7 @@ import javax.security.auth.login.Configuration;
 @SpringBootApplication
 @MapperScan("larry.study.mapper")
 @EnableNacosConfig
-@NacosPropertySource(dataId = "mysql", autoRefreshed = true)
+@NacosPropertySource(dataId = "test", autoRefreshed = true)
 public class StudyApplication {
 
     public static void main(String[] args) {

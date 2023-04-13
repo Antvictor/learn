@@ -17,12 +17,18 @@ public class TestNacosConfigController {
 
     @NacosValue(value = "${urlLocalCache:false}", autoRefreshed = true)
     private boolean urlLocalCache;
+    @NacosValue(value = "${test:hello}", autoRefreshed = true)
+    private String test;
     @Autowired
     TestService testService;
 
-    @GetMapping("get")
+//    @GetMapping("get")
     public boolean getUrlLocalCache() {
         return urlLocalCache;
+    }
+    @GetMapping("get")
+    public String get() {
+        return test;
     }
 
     @GetMapping("user")

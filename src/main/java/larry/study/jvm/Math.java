@@ -1,8 +1,8 @@
 package larry.study.jvm;
 
 import com.alibaba.fastjson.JSONArray;
-import com.sun.crypto.provider.DESKeyFactory;
-import sun.misc.Launcher;
+//import com.sun.crypto.provider.DESKeyFactory;
+//import sun.misc.Launcher;
 
 /**
  * @author exccedy
@@ -12,7 +12,7 @@ public class Math {
 
     public static void main(String[] args) {
         System.out.println(String.class.getClassLoader());
-        System.out.println(DESKeyFactory.class.getClassLoader());
+//        System.out.println(DESKeyFactory.class.getClassLoader());
         System.out.println(Math.class.getClassLoader());
 
         System.out.println();
@@ -26,7 +26,7 @@ public class Math {
 
         System.out.println();
         System.out.println("bootstrapClassLoader 加载：");
-        System.out.println(JSONArray.toJSONString(Launcher.getBootstrapClassPath().getURLs()));
+//        System.out.println(JSONArray.toJSONString(Launcher.getBootstrapClassPath().getURLs()));
 
         System.out.println();
         System.out.println("extClassLoader 加载：");

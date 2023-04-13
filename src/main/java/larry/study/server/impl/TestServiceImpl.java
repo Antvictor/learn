@@ -23,6 +23,13 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public void addBatch(List<Test1> test) {
+        for (Test1 test1 : test) {
+            addTest(test1);
+        }
+    }
+
+    @Override
     public List<Test1> getTest(Test1Example test1Example) {
         return test1Mapper.selectByExample(test1Example);
     }
