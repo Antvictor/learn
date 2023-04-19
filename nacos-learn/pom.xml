@@ -17,6 +17,7 @@
     <modules>
         <module>spring-cloud-nacos-config</module>
         <module>spring-cloud-nacos-provider</module>
+        <module>spring-cloud-nacos-consumer</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
