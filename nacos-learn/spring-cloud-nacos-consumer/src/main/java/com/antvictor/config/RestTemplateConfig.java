@@ -10,6 +10,12 @@ import org.springframework.web.client.RestTemplate;
  * @date 2023/4/19
  **/
 @Configuration
-public class ConsumerConfig {
+public class RestTemplateConfig {
+    @LoadBalanced
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
 
 }
