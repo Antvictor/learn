@@ -1,5 +1,8 @@
 package antvictor.study.lambda;
 
+import java.io.InputStream;
+import java.util.Scanner;
+
 /**
  * @author exccedy
  * @date 2023/4/21
@@ -33,7 +36,7 @@ public class TestLambda {
     }
 
     public static void main(String[] args) {
-        Entity entity = new Entity();
+   /*     Entity entity = new Entity();
         // 静态（绑定了this)
         A a = Entity::show;
         // 绑定了对象
@@ -45,7 +48,11 @@ public class TestLambda {
         // 签名不一致，但入参第一个是对象本身，对象的方法入参对应后面的参数
         D d = Entity::show2;
 //        E e = Entity::show2; // 入参中除去对象后面的与对象方法中的参数不匹配
-
-
+*/
+        Scanner scanner = new Scanner(System.in);
+        long i = 0;
+        i += scanner.nextLong();
+        i += scanner.nextLong();
+        System.out.println(i);
     }
 }
