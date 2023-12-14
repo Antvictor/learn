@@ -1,6 +1,6 @@
 package antvictor.study.jvm;
 
-import com.alibaba.fastjson.JSONArray;
+//import com.alibaba.fastjson.JSONArray;
 //import com.sun.crypto.provider.DESKeyFactory;
 //import sun.misc.Launcher;
 
@@ -8,8 +8,8 @@ import com.alibaba.fastjson.JSONArray;
  * @author exccedy
  * @date 2022/10/14
  **/
-public class User {
-    public User() {
-        System.out.println("自己加载的");
+public class User1 {
+    public User1() {
+        System.out.println("自己加载的1");
     }
 }
