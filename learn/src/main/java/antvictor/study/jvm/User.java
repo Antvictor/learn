@@ -8,8 +8,8 @@ package antvictor.study.jvm;
  * @author exccedy
  * @date 2022/10/14
  **/
-public class User1 {
-    public User1() {
+public class User {
+    public User() {
         System.out.println("自己加载的1");
     }
 }

@@ -1,5 +1,7 @@
 package antvictor.study.jvm;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -19,7 +21,7 @@ public class MyClassLoaderTest {
 
         }
 
-
+        // 打破双亲委派
         @Override
         public Class<?> loadClass(String name) throws ClassNotFoundException {
             synchronized (getClassLoadingLock(name)) {
@@ -47,6 +49,7 @@ public class MyClassLoaderTest {
             }
         }
 
+
         @Override
         protected Class<?> findClass(String name) throws ClassNotFoundException {
             byte[] data = loadByte(name);
@@ -55,13 +58,34 @@ public class MyClassLoaderTest {
 
         private byte[] loadByte(String name) {
 //            name = name.replaceAll("\\.", "/");
-            name = name.replace('.', '/').concat(".class");
+            name = name.replace('.', File.separatorChar).concat(".class");
             try {
                 FileInputStream fis = new FileInputStream(classPath + "/" + name);
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
                 byte[] data = new byte[fis.available()];
                 fis.read(data);
                 return data;
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        private byte[] getBytes(String name) {
+//            name = name.replaceAll("\\.", "/");
+           String  file = classPath + File.separatorChar +
+                   name.replace('.', File.separatorChar).concat(".class");
+            try(
+                    FileInputStream in = new FileInputStream(file);
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    ) {
+                int len;
+                byte[] bytes = new byte[2048];
+                while ((len = in.read(bytes)) != 1) {
+                    out.write(bytes, 0 , len);
+                }
+                return out.toByteArray();
+            } catch (Exception e){
                 e.printStackTrace();
             }
             return null;
