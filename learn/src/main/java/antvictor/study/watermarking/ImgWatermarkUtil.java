@@ -1,14 +1,24 @@
 package antvictor.study.watermarking;
 
 
+import org.bytedeco.ffmpeg.global.avcodec;
+import org.bytedeco.ffmpeg.global.avutil;
+import org.bytedeco.javacv.*;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.opencv.opencv_core.IplImage;
 import org.opencv.core.*;
+import org.opencv.core.Point;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.bytedeco.ffmpeg.global.avutil.AV_LOG_ERROR;
 import static org.opencv.core.Core.BORDER_CONSTANT;
 import static org.opencv.core.Core.copyMakeBorder;
 import static org.opencv.imgproc.Imgproc.FONT_HERSHEY_COMPLEX;
@@ -51,6 +61,9 @@ public class ImgWatermarkUtil {
         Core.flip(complexImage, complexImage, -1);
         return antitransformImage(complexImage, allPlanes);
     }
+
+
+
     /**
      * <pre>
      *     获取图片水印

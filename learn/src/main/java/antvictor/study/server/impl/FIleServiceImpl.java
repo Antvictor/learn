@@ -1,6 +1,6 @@
 package antvictor.study.server.impl;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+//import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import antvictor.study.server.FileService;
@@ -33,7 +33,7 @@ public class FIleServiceImpl implements FileService {
                     filePath.mkdirs();
                 }
                 outputStream = new FileOutputStream(new File(uploadName));
-                IOUtils.copy(inputStream,outputStream);
+//                IOUtils.copy(inputStream,outputStream);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

@@ -28,13 +28,15 @@ public class TestOpenCV {
     }
 
     public static void main(String[] args) {
-        Mat img = imread("/Users/exccedy/Downloads/nfrpc.jpg");//加载图片
+     /*   Mat img = imread("/Users/exccedy/Downloads/nfrpc.jpg");//加载图片
         Mat outImg = ImgWatermarkUtil.addImageWatermarkWithText(img, "哈哈哈哈");
         imwrite("/Users/exccedy/Downloads/nfrpc_out.jpg", outImg);//保存加过水印的图片
         //读取图片水印
         Mat watermarkImg = ImgWatermarkUtil.getImageWatermarkWithText(outImg);
 
-        imwrite("/Users/exccedy/Downloads/nfrpc_out_watermark.jpg", watermarkImg);//保存获取到的水印
+        imwrite("/Users/exccedy/Downloads/nfrpc_out_watermark.jpg", watermarkImg);//保存获取到的水印*/
+
+        VideoWatermarkUtil.main(args);
     }
 
 }
