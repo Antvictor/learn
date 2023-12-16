@@ -1,4 +1,5 @@
-package antvictor.study.design.simplefactory;
+package antvictor.study.design.factorymethod;
+
 
 /**
  * @author Antvictor
@@ -6,7 +7,8 @@ package antvictor.study.design.simplefactory;
  **/
 public class Test {
     public static void main(String[] args) {
-        ICourse course = CourseFactory.createCourse(PythonCourse.class);
+        ICourseFactory factory = new JavaCourseFactory();
+        ICourse course = factory.create();
         course.study();
     }
 }
