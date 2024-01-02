@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 被2013 sp1 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by Rock47 (China E-port Data Centre) -->
+<xs:schema xmlns:ceb="http://www.chinaport.gov.cn/ceb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://www.chinaport.gov.cn/ceb" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>全国海关跨境电子商务进口统一版信息化系统(2016-08) </xs:documentation>
+	</xs:annotation>
+	<!--对接技术规范:CEB(跨境贸易电子商务)-->
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+	<xs:element name="CEB311Message">
+		<xs:annotation>
+			<xs:documentation>电子订单数据报文（ 电商企业或电商平台或受委托的快件运营人、邮政企业）</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+		<!--	<xs:sequence>
+				<xs:element name="Order" maxOccurs="100">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="ceb:OrderHead"/>
+							<xs:element ref="ceb:OrderList" maxOccurs="99"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="ceb:BaseTransfer"/>
+				<xs:element ref="ceb:BaseSubscribe" minOccurs="0" maxOccurs="5"/>
+				<xs:element ref="ceb:ExtendMessage" minOccurs="0"/>
+				<xs:element ref="ds:Signature" minOccurs="0"/>
+			</xs:sequence>-->
+			<xs:attribute name="guid" use="required">
+				<xs:annotation>
+					<xs:documentation>报文的36位系统唯一序号（英文字母大写）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="36"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="version" use="required">
+				<xs:annotation>
+					<xs:documentation>报文版本号 默认1.0</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

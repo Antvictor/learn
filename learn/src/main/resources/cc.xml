@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ceb:CEB311Message guid="123123123123" version="1.0" xmlns:ceb="http://www.chinaport.gov.cn/ceb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ceb:Order no="1234567788"/>
+    <ceb:Order no="231241234123412"/>
+</ceb:CEB311Message>

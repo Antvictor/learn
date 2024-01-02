@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ns2:CEB311Message guid="123123123123" version="1.0" xmlns:ns2="http://entetransportfiles.ws.service.transmit.sdeport.com">
+    <Order no="1234567788"/>
+    <Order no="231241234123412"/>
+</ns2:CEB311Message>
