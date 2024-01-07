@@ -29,7 +29,10 @@ public class Test {
         System.out.println(JSONArray.toJSONString(prototype.getHobbies()));
         System.out.println(JSONArray.toJSONString(clone.getHobbies()));
 
-
+        // output:
+        // true
+        //["跑步","游泳","打球"]
+        //["跑步","游泳","打球"]
 
 
     }

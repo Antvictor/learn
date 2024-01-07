@@ -29,6 +29,9 @@ public class Test {
         hobbies.add("打球");
         System.out.println(JSONArray.toJSONString(prototype.getHobbies()));
         System.out.println(JSONArray.toJSONString(clone.getHobbies()));
-
+        // output:
+        // false
+        //["跑步","游泳","打球"]
+        //["跑步","游泳"]
     }
 }

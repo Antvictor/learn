@@ -40,6 +40,11 @@ public class Prototype implements Cloneable, Serializable {
         return deepClone();
     }
 
+    /**
+     * 深度克隆
+     * 使用ByteArrayOutputStream和ByteArrayInputStream 在内存中进行序列化和反序列化
+     * @return
+     */
     private Prototype deepClone() {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try {

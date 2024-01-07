@@ -9,7 +9,5 @@ import java.util.Arrays;
  * @date 2023/12/25
  **/
 public class CopyUtils {
-    public static void main(String[] args) {
 
-    }
 }
