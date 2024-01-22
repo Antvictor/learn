@@ -64,6 +64,7 @@ public class MyClassLoaderTest {
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 byte[] data = new byte[fis.available()];
                 fis.read(data);
+                fis.close();
                 return data;
             } catch (IOException e) {
                 e.printStackTrace();

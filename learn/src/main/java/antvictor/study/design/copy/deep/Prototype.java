@@ -2,6 +2,7 @@ package antvictor.study.design.copy.deep;
 
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Antvictor
@@ -46,7 +47,7 @@ public class Prototype implements Cloneable, Serializable {
      * @return
      */
     private Prototype deepClone() {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        /*ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(bos);
             oos.writeObject(this);
@@ -57,6 +58,19 @@ public class Prototype implements Cloneable, Serializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }*/
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try (
+        ObjectOutputStream oos = new ObjectOutputStream(bos)){
+            oos.writeObject(this);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        try(ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bis);) {
+            return (Prototype) ois.readObject();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
