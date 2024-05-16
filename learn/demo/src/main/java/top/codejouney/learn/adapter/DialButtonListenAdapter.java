@@ -1,6 +1,6 @@
 package top.codejouney.learn.adapter;
 
-import top.codejouney.learn.ButtonService;
+import top.codejouney.learn.ButtonListen;
 import top.codejouney.learn.Dialer;
 
 /**
@@ -10,11 +10,11 @@ import top.codejouney.learn.Dialer;
  * @author Antvictor
  * @date 2024/5/16
  **/
-public class DialButtonServiceAdapter implements ButtonService {
+public class DialButtonListenAdapter implements ButtonListen {
 
     private Dialer dialer;
 
-    public DialButtonServiceAdapter(Dialer dialer) {
+    public DialButtonListenAdapter(Dialer dialer) {
         this.dialer = dialer;
     }
 

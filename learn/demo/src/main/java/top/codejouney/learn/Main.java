@@ -6,6 +6,10 @@ package top.codejouney.learn;
  **/
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Phone phone = new Phone();
+        phone.dialButtons[1].press();
+        phone.dialButtons[1].press();
+        phone.dialButtons[9].press();
+        phone.sendButton.press();
     }
 }
