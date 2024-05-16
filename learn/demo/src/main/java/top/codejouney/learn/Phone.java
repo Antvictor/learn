@@ -14,10 +14,22 @@ public class Phone {
 
     public Phone() {
         dialer = new Dialer();
-        sendButton = new Button(Button.SEND_BUTTON);
+        sendButton = new Button(Button.SEND_BUTTON) {
+            @Override
+            void onPress() {
+                // 修改状态，拨号中别人打不进来
+                System.out.println("拨号");
+            }
+        };
         dialButtons = new Button[10];
         for (int i = 0; i < 10; i++) {
-            dialButtons[i] = new Button(i);
+            dialButtons[i] = new Button(i) {
+                @Override
+                void onPress() {
+                    // 记录按钮状态
+                    System.out.println("按下");
+                }
+            };
             dialButtons[i].addListener(token -> {
                 dialer.enterDigit(token);
                 // 在此处操作喇叭
