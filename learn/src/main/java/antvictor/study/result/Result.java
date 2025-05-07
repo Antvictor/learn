@@ -8,18 +8,18 @@ import lombok.Data;
  * @date 2023/12/13
  **/
 @Data
-public class Result {
+public class Result<T> {
     private Integer code;
     private String traceId = TraceIdUtil.getTraceId();
 
-    private Object data;
+    private T data;
 
-    public Result(Integer code,  Object data) {
+    public Result(Integer code,  T data) {
         this.code = code;
         this.data = data;
     }
 
-    public Result(Object data) {
+    public Result(T data) {
         this.code = 200;
         this.data = data;
     }

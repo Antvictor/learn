@@ -8,6 +8,7 @@
         <module>learn</module>
         <module>api</module>
         <module>nacos-learn</module>
+        <module>learn/spring</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

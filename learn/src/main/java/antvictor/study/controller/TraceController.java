@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TraceController {
 
     @GetMapping("test")
-    public Result test(){
+    public Result<String> test(){
         log.info("请求开始.........");
         log.info("查询结束.........");
         return ResultUtil.success("success");
